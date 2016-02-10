@@ -1,0 +1,16 @@
+So kurt's doing a context-manager talk at (next?) PyYYC.
+
+He suggested I do a decorator talk to go along with it. This is stuff
+for that.
+
+Things to go over:
+
+ - functions are objects too
+ - first-class things!
+ - a decorator is a function -- that returns a function
+
+ digression: "continuation"
+
+ - encapsulates state
+ - "magic"!
+ - show demo

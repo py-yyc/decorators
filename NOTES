@@ -1,0 +1,48 @@
+
+TODO:
+
+ . get rid of "motivational examples"
+   -> instead "common decorators"
+      @staticmethod, @classmethod
+      @app.route()
+      @pytest.fixture()
+      @click.command()
+      @zope.interface.implements()
+      -> django has something (look it up)
+ . probably move @contextmanager to "the end"/bonus example/"see me after"
+ . timer thing; can it tie into Kurt's
+ . get rid of the "continuations" stuff, and just mention as aside in
+   @memoize example
+ . need an example of decorators that take args
+ . example/slide about class decorators (zope.interface)
+ . note to self: *not* @staticmethod or @classmethod (also, the "real" ones are C)
+
+
+Flask routing:
+
+@app.route(u'/')
+def funtimes():
+    return "Hello World"
+
+
+def route(url):
+    url_map = {}
+    def wrapture(fn):
+        print("first wrapper", fn)
+        def wrapper(*args, **kw):
+            print("wrapper", args, kw)
+        return wrapper
+    return wrapture
+
+@route(u"/foo")
+def root():
+    print("root")
+
+
+@pytest.fixture(scope='session')
+def browser():
+    return selenium.webdriver.Firefox()
+
+def test_something(browser):
+    browser.get('https://torproject.org')
+    assert 'Tor Project' in browser.title
